@@ -1,0 +1,4 @@
+# make sure to check the job has parameters 
+# add a parameter dirname and define default value
+# Build with parameters 
+mkdir ${dirname} 

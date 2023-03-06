@@ -1,0 +1,26 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('pull stage') {
+            steps {
+                echo 'Hello stage1'
+            }
+        }   
+        stage('replace the password') {
+            steps {
+                echo 'Hello stage2'
+            }
+        }    
+        stage('execute ansible script') {
+            steps {
+                echo 'Hello stage3'
+            }
+        }    
+        stage('reset the password') {
+            steps {
+                echo 'Hello stage4'
+            }              
+        }
+    }
+}
