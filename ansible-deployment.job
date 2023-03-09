@@ -1,0 +1,35 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('pull stage') {
+            steps {
+                sh 'git clone https://github.com/venkatdevopsb02/roboshop-ansible.git'
+                
+            }
+        }   
+        stage('replace the password') {
+            steps {
+                sh ...
+                sed -i -e "s/dummy/DevOps654321/g" inventory
+                ...
+            }
+        }    
+        stage('execute ansible script') {
+            steps {
+                sh ...
+                ansible-playbook  -i inventory -b roboshop-play.yml -e RABBITMQ_PASSWORD=roboshop123 -e ROBOSHOP_MYSQL_PASSWORD=RoboShop@1                 ...
+                ...              
+            }
+        }    
+        stage('reset the password') {
+            steps {
+                sh ...
+                sed -i -e "s/DevOps654321/dummy/g" inventory
+                ...
+            }              
+        }
+    }
+}
+
+
